@@ -7,13 +7,35 @@ import { Keg } from './keg.model';
     inputs: ['keg'],
   template: `
   <div class="container">
-    <label>
-    Name: {{ keg.name }} ||
-    Brand:  {{ keg.brand }} ||
-    Price:  {{ keg.price }} ||
-    Alcohol%:  {{ keg.alcohol }} ||
-    Pints:  {{ keg.pints }}
-    </label>
+    <div class="col-md-1" class="names">
+      <label>
+        Name: {{ keg.name }}
+      </label>
+    </div>
+
+    <div class="col-md-1">
+      <label>
+        Brand:  {{ keg.brand }}
+      </label>
+    </div>
+
+    <div class="col-md-1">
+      <label>
+        Price:  {{ keg.price }}
+      </label>
+    </div>
+
+    <div class="col-md-1">
+      <label>
+        Alcohol:  {{ keg.alcohol }}
+      </label>
+    </div>
+
+    <div class="col-md-1">
+      <label>
+        Pints:  {{ keg.pints }}
+      </label>
+    </div>
   </div>
   `
 })
