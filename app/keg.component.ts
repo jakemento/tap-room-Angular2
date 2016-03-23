@@ -6,17 +6,21 @@ import { Keg } from './keg.model';
     selector: 'keg-display',
     inputs: ['keg'],
   template: `
-  <div>
-    <input *ngIf="keg.done" type="checkbox" checked (click)="toggleDone(false)"/>
-    <input *ngIf="!keg.done" type="checkbox" (click)="toggleDone(true)"/>
-    <label>{{ keg.name }}</label>
+  <div class="container">
+    <label>
+    Name: {{ keg.name }} ||
+    Brand:  {{ keg.brand }} ||
+    Price:  {{ keg.price }} ||
+    Alcohol%:  {{ keg.alcohol }} ||
+    Pints:  {{ keg.pints }}
+    </label>
   </div>
   `
 })
 
 export class KegComponent {
   public keg: Keg;
-  // toggleDone(setState: boolean) {
-  //   this.keg.done = setState;
-  // }
+  toggleDone(setState: number) {
+    this.keg.pints = setState;
+  }
 }

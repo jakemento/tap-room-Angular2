@@ -12,15 +12,11 @@ import { NewKegComponent } from './new-keg.component';
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  pipes: [DonePipe],
+  // pipes: [DonePipe],
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
-  <select (change)="onChange($event.target.value)"class="filter">
-    <option value="all">Show All</option>
-    <option value="done">Show Done</option>
-    <option value="notDone" selected="selected">Show Not Done</option>
-  </select>
-  <keg-display *ngFor="#currentKeg of kegList | done:filterDone"
+
+  <keg-display *ngFor="#currentKeg of kegList"
     (click)="kegClicked(currentKeg)"
     [class.selected]="currentKeg === selectedKeg"
     [keg]="currentKeg">
