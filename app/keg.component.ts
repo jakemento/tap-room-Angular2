@@ -21,13 +21,13 @@ import { Keg } from './keg.model';
 
     <div class="col-md-1" class="words" >
       <label>
-        Price:  {{ keg.price }}
+        Price:  {{ keg.price }}$
       </label>
     </div>
 
     <div class="col-md-1" class="words">
       <label>
-        Alcohol:  {{ keg.alcohol }}
+        Alcohol:  {{ keg.alcohol }}%
       </label>
     </div>
 

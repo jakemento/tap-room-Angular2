@@ -42,7 +42,7 @@ export class KegListComponent {
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
   }
-  createKeg(name: string, brand: string, price: string, alcohol: string ): void {
+  createKeg([name , brand, price, alcohol ]): void {
     // console.log(description);
     this.kegList.push(
       new Keg(name, brand, price, alcohol)
