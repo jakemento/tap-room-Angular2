@@ -77,3 +77,7 @@ p {
 body {
   background: linear-gradient(13deg, white, #004466);
 }
+
+.changeFont {
+  font-size: 34px;
+}

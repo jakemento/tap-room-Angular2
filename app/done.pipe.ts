@@ -8,13 +8,13 @@ import {Keg} from './keg.model';
 export class DonePipe implements PipeTransform {
   transform(input: Keg[], args) {
     var desiredDoneState = args[0];
-    if(desiredDoneState === "empty") {
+    if(desiredDoneState === "moreThan10") {
       return input.filter((keg) => {
-        return keg.status;
+        return keg.alcohol > 10;
       });
-    } else if (desiredDoneState === "full") {
+    } else if (desiredDoneState === "lessThan10") {
       return input.filter((keg) => {
-        return !keg.status;
+        return keg.alcohol < 10;
       });
     } else {
       return input;

@@ -35,17 +35,25 @@ import { Keg } from './keg.model';
       <label>
         Pints:  {{ keg.pints }}
       </label>
+
+
+    </div>
+
+    <div class="changeFont">
+     {{(keg.pints <= '10') && (keg.pints > 0)  ? 'this keg is close to empty, refill it!' : ''}}
+     {{(keg.pints == '0')  ? 'this keg is empty' : ''}}
+
     </div>
 
   </div>
+
+
 
 
   <button (click)="minusOne()" class="btn-success btn-lg add-button"> Sell a Pint</button>
   <button (click)="minusTen()" class="btn-success btn-lg add-button"> Sell 10 pints</button>
   <button (click)="minusAll()" class="btn-success btn-lg add-button"> Sell Out</button>
   <button (click)="restock()" class="btn-danger btn-lg add-button"> Re-Stock</button>
-
-
 
 
   `

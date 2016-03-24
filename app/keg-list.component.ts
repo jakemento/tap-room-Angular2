@@ -19,8 +19,8 @@ import {DonePipe} from './done.pipe';
   <div class="keglister">
     <select (change)="onChange($event.target.value)">
       <option value="all">Show All</option>
-      <option value="empty">Show Almost Empty</option>
-      <option value="full" selected="selected">Show Full</option>
+      <option value="lessThan10">Less than 10%</option>
+      <option value="moreThan10" selected="selected">More Than Ten</option>
     </select>
     <keg-display *ngFor="#currentKeg of kegList | status:filterDone"
       (click)="kegClicked(currentKeg)"
@@ -39,13 +39,14 @@ import {DonePipe} from './done.pipe';
     </div>
   </div>
   `
+
 })
 
 export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
-  public filterDone: string = "full";
+  public filterDone: string = "all";
 
   constructor() {
     this.onKegSelect = new EventEmitter();
@@ -63,4 +64,5 @@ export class KegListComponent {
   onChange(filterOption) {
     this.filterDone = filterOption;
   }
+
 }
