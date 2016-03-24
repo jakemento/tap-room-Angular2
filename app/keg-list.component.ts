@@ -3,7 +3,7 @@ import { KegComponent } from './keg.component';
 import { Keg } from './keg.model';
 import { EditKegDetailsComponent } from './edit-keg-details.component';
 import { NewKegComponent } from './new-keg.component';
-// import {DonePipe} from './done.pipe';
+import {DonePipe} from './done.pipe';
 
 
 
@@ -12,24 +12,31 @@ import { NewKegComponent } from './new-keg.component';
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  // pipes: [DonePipe],
+  pipes: [DonePipe],
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
 
   <div class="keglister">
-    <keg-display *ngFor="#currentKeg of kegList"
+    <select (change)="onChange($event.target.value)">
+      <option value="all">Show All</option>
+      <option value="empty">Show Almost Empty</option>
+      <option value="full" selected="selected">Show Full</option>
+    </select>
+    <keg-display *ngFor="#currentKeg of kegList | done:filterDone"
       (click)="kegClicked(currentKeg)"
       [class.selected]="currentKeg === selectedKeg"
       [keg]="currentKeg">
     </keg-display>
   </div>
-  <br>
-
-  <br>
   <div class="border">
-    <center> <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg> </center>
-    <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
-    </edit-keg-details>
+    <div class="col-lg-6">
+      <center> <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg> </center>
+    </div>
+    
+    <div class="col-lg-6">
+      <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
+      </edit-keg-details>
+    </div>
   </div>
   `
 })
@@ -38,7 +45,7 @@ export class KegListComponent {
   public kegList: Keg[];
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
-  public filterDone: string = "notDone";
+  public filterDone: string = "full";
 
   constructor() {
     this.onKegSelect = new EventEmitter();
@@ -48,7 +55,6 @@ export class KegListComponent {
     this.onKegSelect.emit(clickedKeg);
   }
   createKeg([name , brand, price, alcohol ]): void {
-    // console.log(description);
     this.kegList.push(
       new Keg(name, brand, price, alcohol)
     );

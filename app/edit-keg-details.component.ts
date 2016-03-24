@@ -5,6 +5,9 @@ import {Keg} from './keg.model';
   selector: 'edit-keg-details',
   inputs: ['keg'],
   template: `
+  <br>
+  <br>
+  <br>
     <h3>Edit Keg: </h3>
     <div class="keg-form">
       <input [(ngModel)]="keg.name" class="col-sm-8 input-lg"/>

@@ -7,13 +7,13 @@ import {Keg} from './keg.model';
   template: `
   <div class="keg-form">
     <h3>Create Keg: </h3>
+    <div class="container" class="keg-form">
       <input placeholder="Name" class="col-sm-8 input-lg" #newName>
       <input placeholder="Brand" class="col-sm-8 input-lg" #newBrand>
       <input placeholder="Price" class="col-sm-8 input-lg" #newPrice>
       <input placeholder="Alcohol" class="col-sm-8 input-lg" #newAlcohol>
-
-
-      <button (click)="addKeg(newName, newBrand, newPrice, newAlcohol)" class="btn-success btn-lg add-button">Add Keg</button>
+    </div>
+    <button (click)="addKeg(newName, newBrand, newPrice, newAlcohol)" class="btn-success btn-lg add-button"> Add a Keg</button>
   </div>
   `
 })
