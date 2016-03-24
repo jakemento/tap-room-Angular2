@@ -16,16 +16,21 @@ import { NewKegComponent } from './new-keg.component';
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
 
-  <keg-display *ngFor="#currentKeg of kegList"
-    (click)="kegClicked(currentKeg)"
-    [class.selected]="currentKeg === selectedKeg"
-    [keg]="currentKeg">
-  </keg-display>
+  <div class="keglister">
+    <keg-display *ngFor="#currentKeg of kegList"
+      (click)="kegClicked(currentKeg)"
+      [class.selected]="currentKeg === selectedKeg"
+      [keg]="currentKeg">
+    </keg-display>
+  </div>
   <br>
-  <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
-  </edit-keg-details>
+
   <br>
-  <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
+  <div class="border">
+    <center> <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg> </center>
+    <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
+    </edit-keg-details>
+  </div>
   `
 })
 

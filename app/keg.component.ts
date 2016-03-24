@@ -6,7 +6,7 @@ import { Keg } from './keg.model';
     selector: 'keg-display',
     inputs: ['keg'],
   template: `
-  <div class="container">
+  <div class="container" class="border">
     <div class="col-md-1" class="names">
       <label>
         Name: {{ keg.name }}

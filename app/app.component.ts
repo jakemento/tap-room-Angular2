@@ -9,13 +9,17 @@ import { Keg } from './keg.model';
   directives: [KegListComponent],
   template: `
     <div class="container"> <center>
-      <h1>Tap Room: </h1>
+      <h1>Tap Room </h1>
       <h1> What's on Tap:</h1>
       <keg-list
         [kegList]="kegs"
         (onKegSelect)="kegWasSelected($event)">
       </keg-list> </center>
+    </div>
     <div>
+      <img class="banner" src="resources/images/img.jpg" />
+    </div>
+
   `
 })
 
