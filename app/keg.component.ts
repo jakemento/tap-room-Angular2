@@ -13,25 +13,25 @@ import { Keg } from './keg.model';
       </label>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1" class="words">
       <label>
         Brand:  {{ keg.brand }}
       </label>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1" class="words" >
       <label>
         Price:  {{ keg.price }}
       </label>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1" class="words">
       <label>
         Alcohol:  {{ keg.alcohol }}
       </label>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-1" class="words">
       <label>
         Pints:  {{ keg.pints }}
       </label>

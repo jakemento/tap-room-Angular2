@@ -21,8 +21,10 @@ import { NewKegComponent } from './new-keg.component';
     [class.selected]="currentKeg === selectedKeg"
     [keg]="currentKeg">
   </keg-display>
+  <br>
   <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
   </edit-keg-details>
+  <br>
   <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>
   `
 })

@@ -21,4 +21,8 @@
 
 .names {
   color: blue;
+  font-size: 30px;
+}
+.words {
+  font-size: 18px;
 }

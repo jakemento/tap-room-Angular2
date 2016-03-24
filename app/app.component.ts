@@ -8,13 +8,13 @@ import { Keg } from './keg.model';
   selector: 'my-app',
   directives: [KegListComponent],
   template: `
-    <div class="container">
+    <div class="container"> <center>
       <h1>Tap Room: </h1>
       <h1> What's on Tap:</h1>
       <keg-list
         [kegList]="kegs"
         (onKegSelect)="kegWasSelected($event)">
-      </keg-list>
+      </keg-list> </center>
     <div>
   `
 })
@@ -25,7 +25,7 @@ export class AppComponent {
     this.kegs = [
       new Keg("Grunion", "Ballast Point", "38$", "7%"),
       new Keg("Nectar", "Humboldt Brewering Co.", "40$", "6%"),
-      new Keg("Grunion", "Ballast Point", "45$", "8%"),
+      new Keg("Citrus Mistress", "Hop Valley", "35$", "13%"),
     ];
   }
   kegWasSelected(clickedKeg: Keg): void {
