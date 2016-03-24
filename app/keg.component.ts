@@ -36,7 +36,18 @@ import { Keg } from './keg.model';
         Pints:  {{ keg.pints }}
       </label>
     </div>
+
   </div>
+
+
+  <button (click)="minusOne()" class="btn-success btn-lg add-button"> Sell a Pint</button>
+  <button (click)="minusTen()" class="btn-success btn-lg add-button"> Sell 10 pints</button>
+  <button (click)="minusAll()" class="btn-success btn-lg add-button"> Sell Out</button>
+  <button (click)="restock()" class="btn-danger btn-lg add-button"> Re-Stock</button>
+
+
+
+
   `
 })
 
@@ -44,5 +55,17 @@ export class KegComponent {
   public keg: Keg;
   toggleDone(setState: number) {
     this.keg.pints = setState;
+  }
+  minusOne() {
+    this.keg.pints = this.keg.pints -1;
+  }
+  minusTen() {
+    this.keg.pints = this.keg.pints -10;
+  }
+  minusAll() {
+    this.keg.pints = 0;
+  }
+  restock() {
+    this.keg.pints = 124;
   }
 }

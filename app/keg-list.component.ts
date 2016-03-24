@@ -22,7 +22,7 @@ import {DonePipe} from './done.pipe';
       <option value="empty">Show Almost Empty</option>
       <option value="full" selected="selected">Show Full</option>
     </select>
-    <keg-display *ngFor="#currentKeg of kegList | done:filterDone"
+    <keg-display *ngFor="#currentKeg of kegList | status:filterDone"
       (click)="kegClicked(currentKeg)"
       [class.selected]="currentKeg === selectedKeg"
       [keg]="currentKeg">
@@ -32,7 +32,7 @@ import {DonePipe} from './done.pipe';
     <div class="col-lg-6">
       <center> <new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg> </center>
     </div>
-    
+
     <div class="col-lg-6">
       <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
       </edit-keg-details>

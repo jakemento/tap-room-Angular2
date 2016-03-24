@@ -8,7 +8,7 @@ import {Keg} from './keg.model';
   <br>
   <br>
   <br>
-    <h3>Edit Keg: </h3>
+    <h3 class="border">Edit Keg: </h3>
     <div class="keg-form">
       <input [(ngModel)]="keg.name" class="col-sm-8 input-lg"/>
       <input [(ngModel)]="keg.brand" class="col-sm-8 input-lg"/>

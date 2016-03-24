@@ -25,7 +25,8 @@
   font-size: 30px;
 }
 .words {
-  font-size: 35px;
+  font-size: 30px;
+  color: #E4EFF2;
 }
 
 .banner {
@@ -58,11 +59,11 @@ h1 {
 }
 h3 {
 	font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
-	font-size: 20px;
+	font-size: 28px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15.4px;
+	line-height: 30.4px;
 }
 p {
 	font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
@@ -71,4 +72,8 @@ p {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 20px;
+}
+
+body {
+  background: linear-gradient(13deg, white, #004466);
 }
