@@ -39,7 +39,7 @@ import { Keg } from './keg.model';
 
     </div>
 
-    <div class="changeFont">
+    <div class="changeFont" class="whiteText">
      {{(keg.pints <= '10') && (keg.pints > 0)  ? 'this keg is close to empty, refill it!' : ''}}
      {{(keg.pints == '0')  ? 'this keg is empty' : ''}}
 

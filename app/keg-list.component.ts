@@ -4,6 +4,8 @@ import { Keg } from './keg.model';
 import { EditKegDetailsComponent } from './edit-keg-details.component';
 import { NewKegComponent } from './new-keg.component';
 import {DonePipe} from './done.pipe';
+import {MoneyPipe} from './money.pipe';
+
 
 
 
@@ -12,17 +14,26 @@ import {DonePipe} from './done.pipe';
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  pipes: [DonePipe],
+  pipes: [DonePipe, MoneyPipe],
   directives: [KegComponent, EditKegDetailsComponent, NewKegComponent],
   template: `
 
   <div class="keglister">
-    <select (change)="onChange($event.target.value)">
-      <option value="all">Show All</option>
-      <option value="lessThan10">Less than 10%</option>
-      <option value="moreThan10" selected="selected">More Than Ten</option>
-    </select>
-    <keg-display *ngFor="#currentKeg of kegList | status:filterDone"
+    <label class="whiteText"> sort by ABV </label>
+    <div class ="biggerFont">
+      <select (change)="onChange($event.target.value)">
+        <option value="lessThan10">Less than 10%</option>
+        <option value="moreThan10">More Than 10%</option>
+        <option value="all" selected="selected">Show All</option>
+      </select>
+      <label class="whiteText"> sort by price </label>
+      <select (change)="onChangeTwo($event.target.value)">
+        <option value="lessThan30">Less than 30$</option>
+        <option value="moreThan30">More Than 30$</option>
+        <option value="all" selected="selected">Show All</option>
+      </select>
+    </div>
+    <keg-display *ngFor="#currentKeg of kegList | money:filterDoneTwo | status:filterDone"
       (click)="kegClicked(currentKeg)"
       [class.selected]="currentKeg === selectedKeg"
       [keg]="currentKeg">
@@ -47,6 +58,8 @@ export class KegListComponent {
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
   public filterDone: string = "all";
+  public filterDoneTwo: string = "all";
+
 
   constructor() {
     this.onKegSelect = new EventEmitter();
@@ -63,6 +76,10 @@ export class KegListComponent {
 
   onChange(filterOption) {
     this.filterDone = filterOption;
+  }
+
+  onChangeTwo(filterOption) {
+    this.filterDoneTwo = filterOption;
   }
 
 }
